@@ -1,0 +1,16 @@
+[package]
+name = "web_logger"
+version = "0.1.0"
+authors = ["Denis Kolodin <deniskolodin@gmail.com>"]
+repository = "https://github.com/DenisKolodin/web_logger"
+homepage = "https://github.com/DenisKolodin/web_logger"
+documentation = "https://docs.rs/web_logger/"
+license = "MIT/Apache-2.0"
+readme = "README.md"
+keywords = ["web", "webasm", "browser", "logger"]
+categories = ["web-programming"]
+description = "A logger for logging in web-browsers"
+
+[dependencies]
+log = "0.4"
+stdweb = "0.4"
