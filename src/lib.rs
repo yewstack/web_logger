@@ -65,8 +65,11 @@ impl Log for WebLogger {
     }
 }
 
-pub fn init() -> Result<(), SetLoggerError> {
+pub fn try_init() -> Result<(), SetLoggerError> {
     log::set_logger(&LOGGER)?;
     Ok(())
 }
 
+pub fn init() {
+    try_init().expect("web_logger::init should not be called after logger initialized");
+}
