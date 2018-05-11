@@ -67,6 +67,8 @@ impl Log for WebLogger {
 
 pub fn try_init() -> Result<(), SetLoggerError> {
     log::set_logger(&LOGGER)?;
+    let level = Level::Trace;
+    log::set_max_level(level.to_level_filter());
     Ok(())
 }
 
