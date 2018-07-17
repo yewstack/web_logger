@@ -34,6 +34,20 @@ mod console {
     }
 }
 
+
+pub struct Config {
+    pub level: Level
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Config {
+            level: Level::Trace
+        }
+    }
+}
+
+
 static LOGGER: WebLogger = WebLogger;
 
 struct WebLogger;
@@ -65,13 +79,17 @@ impl Log for WebLogger {
     }
 }
 
-pub fn try_init() -> Result<(), SetLoggerError> {
+pub fn try_init(config: Config) -> Result<(), SetLoggerError> {
     log::set_logger(&LOGGER)?;
-    let level = Level::Trace;
+    let level = config.level;
     log::set_max_level(level.to_level_filter());
     Ok(())
 }
 
 pub fn init() {
-    try_init().expect("web_logger::init should not be called after logger initialized");
+    try_init(Config::default()).expect("web_logger::init should not be called after logger initialized");
+}
+
+pub fn custom_init(config: Config) {
+    try_init(config).expect("web_logger::custom_init should not be called after logger initialized");
 }
