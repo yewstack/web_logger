@@ -14,3 +14,6 @@ description = "A logger for logging in web-browsers"
 [dependencies]
 log = "0.4"
 stdweb = "0.4"
+
+[target.'cfg(all(target_arch = "wasm32", not(cargo_web)))'.dependencies]
+wasm-bindgen = { version = "0.2" }
