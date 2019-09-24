@@ -15,7 +15,7 @@ It must be added along with `log` to the project dependencies:
 ```toml
 [dependencies]
 log = "0.4"
-web_logger = "0.1"
+web_logger = "0.2"
 ```
 
 `web_logger` must be initialized as early as possible in the project.
